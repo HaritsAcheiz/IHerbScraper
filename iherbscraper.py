@@ -25,6 +25,8 @@ class IHerbScraper:
         #         r.raise_for_status()
         #     return await r.text()
         r = await client.get(url)
+        if r.status_code != 200:
+            r.raise_for_status()
         return r.text
 
     async def fetch_all(self, client, urls):
@@ -49,7 +51,7 @@ class IHerbScraper:
         }
 
         urls = []
-        for page in range(1, 3):
+        for page in range(1, 2):
             url = f'https://www.iherb.com/specials?p={page}'
             urls.append(url)
 
