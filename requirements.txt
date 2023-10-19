@@ -1,2 +1,2 @@
-httpx==0.25.0
+aiohttp==3.8.6
 selectolax==0.3.16
